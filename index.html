@@ -18,24 +18,30 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
       const myRoot = document.getElementById("root");
-      const myName = "I LOVE JSX";
 
-      const name = "Yusuf";
-      const lastName = "Aydın";
-      const city = "Giresun";
-      const cityLabel = "Şehir";
+      const myWords = "I Love JSX!";
+      const name = "Ali";
+      const lastName = "Veli";
+      const city = "istanbul";
+      const cityLabel = "City";
       const currentYear = new Date().getFullYear();
-      const birthYear = 1994;
+      const birthYear = 1980;
       const myTechs = ["Html", "JS", "Css"];
 
       const myObj = {
-        profileID: 123,
-        name: "Yusuf",
-        lastName: "Aydın",
-        age: 35,
+        profileId: 123,
+        name: "Hasan",
+        lastName: "Soyad",
+        Age: "33",
       };
 
-      const my_h1 = <h1>{myName}</h1>;
+      const my_h1 = <h1>{myWords}</h1>;
+      /**
+        let myElem = document.createElement('h1');
+        myElem.innerText = 'I Love JSX!';
+        */
+      //ReactDOM.render(myElement, myRoot); // for older react versions <18
+
       const myDiv = <div>{my_h1}</div>;
 
       const cityDom = (
@@ -47,54 +53,51 @@
       const lastNameDom = <p>{lastName}</p>;
       const yearDom = <p>{currentYear}</p>;
       const birthYearDom = <p>{birthYear}</p>;
+
       const profileDom = (
         <div>
-          name : {myObj.name} {myObj.lastName}{" "}
+          Profil : {myObj.name} {myObj.lastName}
         </div>
       );
+
       const yearsOldDom = <p>{currentYear - birthYear}</p>;
 
       const myTechsDom = <p>{myTechs.join(" , ")}</p>;
 
       //let myDomArr = [];
-      /*
-      for (let i = 0; i <ul myTechs.length; i++) {
-        const element = <li key={myTechs[i]}>{myTechs[i]}</li>;
-        myDomArr.push(element);
-      }
-      */
+      // for (let i = 0; i < myTechs.length; i++) {
+      //     const element =<li key={myTechs[i]}>{myTechs[i]}</li>;
+      //     myDomArr.push(element)
+      // }
+
+      //myDomArr = myTechs.map((item)=> <li key={item} >{item}</li> )
+
       const myTechsListDomTemp = (
         <ul>
           {myTechs.map((item) => (
-            <li key={item}> {item}</li>
+            <li key={item}>{item}</li>
           ))}
         </ul>
       );
-      //const myTechsListDomTemp = <ul>{myDomArr}</ul>;
 
-      /*
-      const myTechsListDom = (
-        <ul>
-          <li>HTML1</li>
-          <li>HTml2</li>
-          <li>Html3</li>
-        </ul>
-      );
-    */
-
+      // const myTechsListDom = <ul>
+      //                         <li>HTML</li>
+      //                         <li>HTML1</li>
+      //                         <li>HTML2</li>
+      //                        </ul>
       const header = (
         <header>
           {myDiv}
           {cityDom}
           {nameDom}
           {lastNameDom}
+          {profileDom}
           {yearDom}
           {birthYearDom}
           {yearsOldDom}
-          {/*myTechsDom*/}
-          {/*myTechsListDom*/}
           {myTechsListDomTemp}
-          {profileDom}
+          {/*myDomArr*/}
+          {/*myTechsListDom*/}
         </header>
       );
 
