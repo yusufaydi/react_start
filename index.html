@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello React</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      const myRoot = document.getElementById("root");
+      const myName = "I LOVE JSX";
+
+      const name = "Yusuf";
+      const lastName = "Aydın";
+      const city = "Giresun";
+      const cityLabel = "Şehir";
+      const currentYear = new Date().getFullYear();
+      const birthYear = 1994;
+      const myTechs = ["Html", "JS", "Css"];
+
+      const myObj = {
+        profileID: 123,
+        name: "Yusuf",
+        lastName: "Aydın",
+        age: 35,
+      };
+
+      const my_h1 = <h1>{myName}</h1>;
+      const myDiv = <div>{my_h1}</div>;
+
+      const cityDom = (
+        <p>
+          {cityLabel} : {city}
+        </p>
+      );
+      const nameDom = <p>{name}</p>;
+      const lastNameDom = <p>{lastName}</p>;
+      const yearDom = <p>{currentYear}</p>;
+      const birthYearDom = <p>{birthYear}</p>;
+      const profileDom = (
+        <div>
+          name : {myObj.name} {myObj.lastName}{" "}
+        </div>
+      );
+      const yearsOldDom = <p>{currentYear - birthYear}</p>;
+
+      const myTechsDom = <p>{myTechs.join(" , ")}</p>;
+
+      //let myDomArr = [];
+      /*
+      for (let i = 0; i <ul myTechs.length; i++) {
+        const element = <li key={myTechs[i]}>{myTechs[i]}</li>;
+        myDomArr.push(element);
+      }
+      */
+      const myTechsListDomTemp = (
+        <ul>
+          {myTechs.map((item) => (
+            <li key={item}> {item}</li>
+          ))}
+        </ul>
+      );
+      //const myTechsListDomTemp = <ul>{myDomArr}</ul>;
+
+      /*
+      const myTechsListDom = (
+        <ul>
+          <li>HTML1</li>
+          <li>HTml2</li>
+          <li>Html3</li>
+        </ul>
+      );
+    */
+
+      const header = (
+        <header>
+          {myDiv}
+          {cityDom}
+          {nameDom}
+          {lastNameDom}
+          {yearDom}
+          {birthYearDom}
+          {yearsOldDom}
+          {/*myTechsDom*/}
+          {/*myTechsListDom*/}
+          {myTechsListDomTemp}
+          {profileDom}
+        </header>
+      );
+
+      const root = ReactDOM.createRoot(myRoot);
+      root.render(header);
+    </script>
+  </body>
+</html>
